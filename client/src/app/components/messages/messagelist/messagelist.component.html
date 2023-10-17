@@ -1,0 +1,10 @@
+<div
+  #scrollableContainer
+  class="message-container scrollable-container ds-pad-0_5"
+  (scroll)="onScroll()"
+>
+  <app-message
+    *ngFor="let message of messages"
+    [message]="message"
+  ></app-message>
+</div>

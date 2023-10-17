@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="ds-col-1"></div>
+  <div class="ds-col-2">
+    <div class="ds-mar-t-b-1 ds-shadow-raised ds-pad-0_5 radius-2">
+      <ul>
+        <li
+          *ngFor="let room of rooms"
+          (click)="roomChanged(room)"
+          [class.selected]="room == selectedRoom"
+        >
+          #{{ room.name }}
+        </li>
+      </ul>
+    </div>
+    <app-create-group
+      (createGroupEmitter)="createGroup($event)"
+    ></app-create-group>
+  </div>
+  <div class="ds-col-6">
+    <div class="ds-mar-t-1 ds-shadow-raised ds-pad-0_5">
+      <div class="ds-pad-0_5">
+        <h2 class="ds-font-weight-bold" *ngIf="selectedRoom">
+          {{ selectedRoom.name }}
+        </h2>
+        <div class="ds-font-weight-bold ds-mar-b-0_5">
+          Active users: {{ userCount }}
+        </div>
+        <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+          <label class="ds-label">Username:</label>
+          <span
+            class="error ds-text-italic"
+            *ngIf="sender?.invalid && messageForm.controls.sender.touched"
+            >*(required)</span
+          >
+          <input
+            formControlName="sender"
+            class="ds-input ds-small ds-mar-b-1"
+          />
+
+          <label class="ds-label">Message:</label>
+          <input formControlName="content" class="ds-input ds-small" />
+          <button class="ds-button ds-small ds-mar-t-b-1">Send</button>
+        </form>
+      </div>
+
+      <app-messagelist
+        [messages]="messages"
+        (loadMore)="loadMoreMessages()"
+      ></app-messagelist>
+    </div>
+  </div>
+  <div class="ds-col-3"></div>
+</div>

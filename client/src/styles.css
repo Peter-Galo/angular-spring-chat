@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+.small {
+  font-size: 0.8rem;
+}
+
+.error {
+  color: #da1e28;
+}
+
+.radius-2 {
+  border-radius: 2px;
+}
+
+li:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+p {
+  margin: 0 !important;
+}
+
+.scrollable-container {
+  max-height: 500px; /* or whatever max height you want */
+  overflow-y: auto;
+}

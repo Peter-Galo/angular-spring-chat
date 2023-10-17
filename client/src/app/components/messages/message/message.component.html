@@ -1,0 +1,9 @@
+<div class="ds-shadow-raised ds-pad-0_5" *ngIf="message">
+  <div>
+    <strong>{{ message.sender }}</strong>
+    <span class="small ds-mar-l-0_5">{{
+      message.timestamp | date : "yyyy-MM-dd HH:mm:ss"
+    }}</span>
+  </div>
+  <p>{{ message.content }}</p>
+</div>

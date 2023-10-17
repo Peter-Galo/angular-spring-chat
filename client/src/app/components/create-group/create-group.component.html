@@ -1,0 +1,31 @@
+<div *ngIf="showNewGroupInput; else newGroupButton">
+  <form [formGroup]="createGroupForm" (ngSubmit)="createGroup()">
+    <input
+      type="text"
+      class="ds-input ds-small ds-mar-b-0_5"
+      placeholder="Group name"
+      formControlName="groupName"
+    />
+    <button
+      class="ds-button ds-small ds-secondary ds-mar-b-0_5"
+      (click)="createGroup()"
+    >
+      Create
+    </button>
+    <button
+      class="ds-button ds-small ds-danger ds-mar-b-0_5"
+      (click)="switchShowNewGroupInput()"
+    >
+      Cancel
+    </button>
+  </form>
+</div>
+
+<ng-template #newGroupButton>
+  <button
+    class="ds-button ds-small ds-mar-0 ds-shadow-raised"
+    (click)="switchShowNewGroupInput()"
+  >
+    New Group
+  </button>
+</ng-template>
